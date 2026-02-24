@@ -1,6 +1,11 @@
-
 import { ExternalLink, Github } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const Projects = () => {
@@ -33,6 +38,17 @@ const Projects = () => {
       demo: "https://demo.com",
     },
     {
+      title: "Beoux",
+      /*description:
+        "Système de gestion de dons avec authentification multi-rôles (Admin, Donneur, Receveur)", rolo*/
+      description: "Application web de suivi et gestion des transferts de bœux entre donneurs et receveurs avec tableau de bord administrateur complet",
+      image:
+        "https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?w=400&h=250&fit=crop",
+      technologies: ["React", "Superbase", "Tailwind CSS"],
+      github: "https://github.com/votre-repo",
+      demo: "https://demo-beoux.netlify.app",
+    },
+    {
       title: "Panel Administration",
       description:
         "Tableau de bord moderne avec visualisations de données en temps réel",
@@ -45,10 +61,10 @@ const Projects = () => {
     {
       title: "API REST",
       description:
-        "API REST pour la collecte des données et pour la partie elearning",
+        "API REST dédiée à la collecte des données et à la gestion de la plateforme e-learning.",
       image:
         "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop",
-      technologies: ["Laravel", "Sanctum",],
+      technologies: ["Laravel", "Sanctum"],
       github: "https://github.com",
       demo: "https://demo.com",
     },
@@ -76,39 +92,41 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card 
+            <Card
               key={project.title}
               className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover:scale-105 group"
             >
               <div className="relative overflow-hidden rounded-t-lg">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              
+
               <CardHeader>
-                <CardTitle className="text-white text-xl">{project.title}</CardTitle>
+                <CardTitle className="text-white text-xl">
+                  {project.title}
+                </CardTitle>
                 <CardDescription className="text-gray-300">
                   {project.description}
                 </CardDescription>
               </CardHeader>
-              
+
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
-                    <Badge 
-                      key={tech} 
-                      variant="secondary" 
+                    <Badge
+                      key={tech}
+                      variant="secondary"
                       className="bg-blue-500/20 text-blue-300 border-blue-500/30"
                     >
                       {tech}
                     </Badge>
                   ))}
                 </div>
-                
+
                 {/* <div className="flex gap-4">
                   <a
                     href={project.github}
