@@ -15,14 +15,10 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-300 leading-relaxed">
-              Développeur passionné avec plus de 3 ans d'expérience dans la création 
-              d'applications web modernes. J'aime transformer des idées complexes en 
-              solutions simples et élégantes.
+              Développeur Full Stack avec plus de 3 ans d'expérience, je me spécialise dans la création d'applications robustes et scalables. Mon expertise s'articule autour des écosystèmes <strong>Laravel (PHP)</strong> et <strong>React / Next.js (TypeScript)</strong>, avec une forte affinité pour la conception d'architectures de bases de données et de solutions multi-tenants (SaaS).
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Spécialisé dans Laravel, PHP native et ReactJs, je m'efforce constamment 
-              d'apprendre de nouvelles technologies et d'améliorer mes compétences 
-              pour livrer des produits de qualité.
+              J'accompagne les entreprises dans la digitalisation de leurs processus métiers en concevant des outils sur mesure, performants et faciles à maintenir, tout en garantissant un niveau élevé de sécurité et de stabilité.
             </p>
             
             <div className="grid grid-cols-3 gap-6 mt-8">

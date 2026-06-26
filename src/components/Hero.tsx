@@ -19,8 +19,8 @@ const Hero = () => {
               Full Stack
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Passionné par la création d'expériences web modernes et performantes.
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Développeur Full Stack spécialisé dans la conception de solutions SaaS, d'applications métiers et d'architectures web robustes.
           </p>
           
           <div className="flex justify-center space-x-6 mb-12">
@@ -40,16 +40,16 @@ const Hero = () => {
             >
               <Linkedin className="w-6 h-6 text-white" />
             </a>
-            <a
-              href="mailto:contact@exemple.com"
+            <button
+              onClick={() => scrollToSection("contact")}
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
             >
               <Mail className="w-6 h-6 text-white" />
-            </a>
+            </button>
           </div>
 
           <button
-            onClick={() => scrollToSection("about")}
+            onClick={() => scrollToSection("projects")}
             className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105"
           >
             Découvrir mon travail
@@ -58,7 +58,7 @@ const Hero = () => {
       </div>
       
       <button
-        onClick={() => scrollToSection("about")}
+        onClick={() => scrollToSection("projects")}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 hover:text-white transition-colors animate-bounce"
       >
         <ChevronDown size={32} />

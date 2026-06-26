@@ -11,72 +11,54 @@ import { Badge } from "@/components/ui/badge";
 const Projects = () => {
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "Plateforme e-commerce complète avec panier et paiements",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
-      technologies: ["Laravel", "Bootstrap", "HTML", "CSS"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-    },
-    {
-      title: "Educ Platform",
-      description: "Plateforme de gestion d'une ecole",
-      image:
-        "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop",
-      technologies: ["PHP", "MySQL", "HTML", "CSS"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-    },
-    {
-      title: "GEC (Gestion d'Entreprise Commerciale)",
-      description: "Plateforme de gestion d'une entreprise commerciale",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop",
-      technologies: ["PHP", "MySQL", "HTML", "CSS"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-    },
-    {
-      title: "Beoux",
-      /*description:
-        "Système de gestion de dons avec authentification multi-rôles (Admin, Donneur, Receveur)", rolo*/
-      description: "Application web de suivi et gestion des transferts de bœux entre donneurs et receveurs avec tableau de bord administrateur complet",
-      image:
-        "https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?w=400&h=250&fit=crop",
-      technologies: ["React", "Superbase", "Tailwind CSS"],
-      github: "https://github.com/votre-repo",
-      demo: "https://demo-beoux.netlify.app",
-    },
-    {
-      title: "Panel Administration",
+      title: "PharmaSaaS (Multi-tenant)",
       description:
-        "Tableau de bord moderne avec visualisations de données en temps réel",
+        "Application SaaS multi-tenant complète dédiée à la gestion des stocks, des ventes, de la facturation et du personnel de plusieurs pharmacies.",
+      image:
+        "https://images.unsplash.com/photo-1576602976047-174e57a47881?w=400&h=250&fit=crop",
+      technologies: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript"],
+      github: "https://github.com/Djibsone",
+      demo: "https://github.com/Djibsone",
+    },
+    {
+      title: "CSI FAABA",
+      description:
+        "Développement d'une application de gestion de pharmacie et de dispensaire permettant d'administrer les médicaments, les stocks, les expirations et le personnel via une interface moderne.",
+      image:
+        "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=400&h=250&fit=crop",
+      technologies: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript"],
+      github: "https://github.com/Djibsone",
+      demo: "https://github.com/Djibsone",
+    },
+    {
+      title: "API REST (E-Learning)",
+      description:
+        "Conception et développement d'une API REST sécurisée avec Laravel Sanctum dédiée à la collecte de données et à la gestion d'une plateforme d'apprentissage en ligne.",
+      image:
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop",
+      technologies: ["Laravel", "Sanctum", "REST API", "MySQL"],
+      github: "https://github.com/Djibsone",
+      demo: "",
+    },
+    {
+      title: "Gestion Agricole Mobile",
+      description:
+        "Application mobile facilitant la mise en relation pour la revente des surplus agricoles et le suivi en temps réel du cours des produits sur les marchés locaux.",
+      image:
+        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop",
+      technologies: ["Flutter", "MySQL", "REST API"],
+      github: "https://github.com/Djibsone",
+      demo: "https://github.com/Djibsone",
+    },
+    {
+      title: "Filament Admin Panel",
+      description:
+        "Tableau de bord moderne d'administration avec visualisations de données en temps réel et gestion granulaire des rôles utilisateurs.",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
       technologies: ["Laravel", "Filament", "Tailwind CSS", "Alpine.js"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-    },
-    {
-      title: "API REST",
-      description:
-        "API REST dédiée à la collecte des données et à la gestion de la plateforme e-learning.",
-      image:
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop",
-      technologies: ["Laravel", "Sanctum"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-    },
-    {
-      title: "Mobile App",
-      description:
-        "Application mobile cross-platform pour la gestion de tâches",
-      image:
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop",
-      technologies: ["React Native", "Firebase", "Redux"],
-      github: "https://github.com",
-      demo: "https://demo.com",
+      github: "https://github.com/Djibsone",
+      demo: "https://github.com/Djibsone",
     },
   ];
 
@@ -94,27 +76,29 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={project.title}
-              className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover:scale-105 group"
+              className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover:scale-105 group flex flex-col justify-between"
             >
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div>
+                <div className="relative overflow-hidden rounded-t-lg">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+
+                <CardHeader>
+                  <CardTitle className="text-white text-xl">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-gray-300 text-sm">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
               </div>
 
-              <CardHeader>
-                <CardTitle className="text-white text-xl">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="text-gray-300">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 mt-auto">
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <Badge
@@ -127,26 +111,28 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* <div className="flex gap-4">
+                <div className="flex gap-4 pt-2 border-t border-slate-600/30">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
                   >
-                    <Github size={18} />
+                    <Github size={16} />
                     Code
                   </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-                  >
-                    <ExternalLink size={18} />
-                    Demo
-                  </a>
-                </div> */}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
+                    >
+                      <ExternalLink size={16} />
+                      Démo
+                    </a>
+                  )}
+                </div>
               </CardContent>
             </Card>
           ))}

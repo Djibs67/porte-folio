@@ -13,15 +13,65 @@ const Contact = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message envoyé !",
-      description: "Merci pour votre message. Je vous répondrai bientôt.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+
+    if (!accessKey) {
+      toast({
+        title: "Configuration requise",
+        description: "Veuillez ajouter votre clé VITE_WEB3FORMS_KEY dans votre fichier .env pour activer l'envoi de messages.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Nouveau message portfolio de ${formData.name}`
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message envoyé !",
+          description: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast({
+          title: "Erreur lors de l'envoi",
+          description: result.message || "Une erreur est survenue.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Erreur réseau",
+        description: "Impossible de joindre le serveur d'envoi. Vérifiez votre connexion.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -75,7 +125,7 @@ const Contact = () => {
                 <MapPin className="w-6 h-6 text-red-400" />
                 <div>
                   <h4 className="text-white font-semibold">Localisation</h4>
-                  <p className="text-gray-300">Cotonu - Akpakpa, Bénin</p>
+                  <p className="text-gray-300">Cotonou - Akpakpa, Bénin</p>
                 </div>
               </div>
             </div>
@@ -121,10 +171,17 @@ const Contact = () => {
                 </div>
                 <Button 
                   type="submit" 
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
                 >
-                  <Send className="w-4 h-4 mr-2" />
-                  Envoyer le message
+                  {isSubmitting ? (
+                    "Envoi en cours..."
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 mr-2" />
+                      Envoyer le message
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
